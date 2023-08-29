@@ -1,0 +1,22 @@
+.dropDown{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu{
+    color: var(--light-background-gray);
+}
+
+.menuItem{
+    color: var(--basic-gray);
+}
+
+.lastMenuItem{
+    color: var(--basic-blue);
+}
+
+.divider{
+    background-color: var(--dropdown-divider);
+}

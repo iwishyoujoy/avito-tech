@@ -1,0 +1,26 @@
+.dropdownNameContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.dropdownName{
+    font-size: 20px;
+    color: white;
+}
+
+.filterItem{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--basic-gray);
+}
+
+.filterText{
+    font-size: 14px;
+    color: var(--dropdown-darker-text);
+}

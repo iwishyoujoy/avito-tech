@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start -p 3001",
     "lint": "next lint",
-    "commit": "cz"
+    "commit": "git-cz"
   },
   "dependencies": {
     "@ant-design/icons": "^5.2.5",
@@ -23,7 +23,17 @@
     "typescript": "5.2.2"
   },
   "devDependencies": {
+    "commitizen": "^4.3.0",
+    "commitlint": "^17.7.1",
     "cz-customizable": "^7.0.0",
     "eslint-plugin-import": "^2.28.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-customizable"
+    }
+  },
+  "cz-customizable": {
+    "config": "cz-config.js"
   }
 }

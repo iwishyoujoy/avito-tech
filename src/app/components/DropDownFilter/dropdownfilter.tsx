@@ -1,13 +1,14 @@
-import { DownOutlined } from "@ant-design/icons";
-import pc from '@public/icons/pc.svg';
-import windows from '@public/icons/windows.svg';
 import { Dropdown, Menu, Space, Typography } from "antd";
 import Image from "next/image";
+
+import { DownOutlined } from "@ant-design/icons";
+import web from '@public/icons/web.svg';
+import pc from '@public/icons/pc.svg';
+
 import styles from "./dropdownfilter.module.css";
 
 // TODO: мб заменить svg стрелочки вниз?
 // TODO: некрасиво использовала any
-
 export interface DropdownFilterProps {
     children: React.ReactNode;
     filterText: string; // внутренний заголовок дропдауна
@@ -24,8 +25,8 @@ export default function DropdownFilter({
     filterList,
 }: DropdownFilterProps){
     const srcForIcons: IconSrcs = {
-        'Windows (PC)': windows, 
-        'Browser (Web)': pc,
+        'Windows (PC)': pc, 
+        'Browser (Web)': web,
     };
 
     const menuStyle: React.CSSProperties = {

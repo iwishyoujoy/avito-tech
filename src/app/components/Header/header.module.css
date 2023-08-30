@@ -1,3 +1,11 @@
+.headerContainer{
+    width: 1080px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: top;
+}
+
 .leftSideHeader, .rightSideHeader{
     display: flex;
     flex-direction: row;

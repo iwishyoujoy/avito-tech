@@ -1,4 +1,12 @@
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .footerContainer{
+    width: 1080px;
     position: block;
     display: flex;
     flex-direction: column;

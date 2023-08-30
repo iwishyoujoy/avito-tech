@@ -1,9 +1,9 @@
 'use client'
 
+import { Divider } from 'antd';
 import React from 'react';
 import DropdownFilter from './components/DropDownFilter/dropdownfilter';
 import styles from './page.module.css';
-import { Divider } from 'antd';
 
 // TODO: переделать список жанров 
 
@@ -34,7 +34,7 @@ export default function Home() {
       </div>
       <Divider style={dividerStyle}/>
       <div className={styles.gamesContainer}>
-          
+
       </div>
     </div>
   )

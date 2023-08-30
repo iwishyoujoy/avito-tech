@@ -14,3 +14,14 @@
     gap: 0.5rem;
     color: var(--basic-gray);
 }
+
+.gamesContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    row-gap: 1.3rem;
+    column-gap: 0.5rem;
+}
+

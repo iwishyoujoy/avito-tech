@@ -1,16 +1,26 @@
 'use client'
 
-import { Divider } from 'antd';
 import React from 'react';
+import { Divider, Skeleton } from 'antd';
+
 import DropdownFilter from './components/DropDownFilter/dropdownfilter';
-import styles from './page.module.css';
 import { useGetGamesQuery } from '@/app/redux/services/gamesApi';
 
-// TODO: переделать список жанров 
+import styles from './page.module.css';
+import GameCard from './components/GameCard/gamecard';
+import SkeletonCustom from './components/Skeleton/skeleton';
+
 
 interface Game {
   id: number;
   title: string;
+  thumbnail: string;
+  short_description: string;
+  genre: string;
+  platform: string;
+  publisher: string;
+  developer: string;
+  release_date: string;
 }
 
 export default function Home() {
@@ -20,32 +30,36 @@ export default function Home() {
   const sortBy = ['Relevance', 'Popularity', 'Release Date', 'Alphabetical'];
 
   const GameList: React.FC = () => {
-    const apiUrl = 'http://localhost:3000/api';
-    const { data, isLoading, error } = useGetGamesQuery(apiUrl); // Используйте новый хук
+    const { data, isLoading, error } = useGetGamesQuery({});
   
     if (isLoading) {
-      return <div>Loading...</div>;
+      return (
+          <SkeletonCustom />
+        //TODO: пофиксить скелетон
+      );
     }
 
     if (error || !data) {
       return <div>Error loading games</div>;
+      // TODO: сделать заглушку для ошибки
     }
-  
+
     return (
-      <div>
-        <h2>Games List</h2>
-        <ul>
-          {data.map((game: Game) => (
-            <li key={game.id}>{game.title}</li>
-          ))}
-        </ul>
+      <div className={styles.gamesContainer}>
+        {data.map((game: Game) => (
+          <GameCard 
+            id={game.id} 
+            title={game.title} 
+            thumbnail={game.thumbnail} 
+            short_description={game.short_description}
+            genre={game.genre}
+            platform={game.platform}
+            />
+        ))}
       </div>
     );
   }
 
-  const dividerStyle: React.CSSProperties = {
-    backgroundColor: '#3b3c3c', 
-  }
   return (
     <div className='App'>
       <div className={styles.filterContainer}>
@@ -62,10 +76,8 @@ export default function Home() {
             <DropdownFilter filterText='Sort by:' filterList={sortBy}>Relevance</DropdownFilter>
           </div>
       </div>
-      <Divider style={dividerStyle}/>
-      <div className={styles.gamesContainer}>
-        <GameList />
-      </div>
+      <div className='divider'/>
+      <GameList />
     </div>
   )
 }

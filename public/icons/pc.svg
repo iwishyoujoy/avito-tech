@@ -1,2 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="17" height="17" fill='#aaaaaa'><path d="M24,13V4a3,3,0,0,0-3-3H3A3,3,0,0,0,0,4v9Z"/><polygon points="24 19 24 15 0 15 0 19 11 19 11 21 6 21 6 23 18 23 18 21 13 21 13 19 24 19"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve" width="17" height="17">
+<g>
+	<path id="rect65" d="M0,0h11.589v11.589H0V0z" fill='#aaaaaa'/>
+	<path id="rect165" d="M12.411,11.589V0H24v11.589H12.411z" fill='#aaaaaa'/>
+	<path id="rect413" d="M0,12.411h11.589V24H0V12.411z" fill='#aaaaaa'/>
+	<path id="rect415" d="M12.411,24V12.411H24V24H12.411z" fill='#aaaaaa'/>
+</g>
+</svg>

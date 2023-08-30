@@ -1,13 +1,15 @@
 'use client'
 
 import { Layout } from 'antd'
-import './globals.css'
 import { Content } from 'antd/es/layout/layout'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+
 import FooterCustom from '@/app/components/Footer/footer'
 import HeaderCustom from '@/app/components/Header/header'
 import { StoreProvider } from '@/app/redux/storeProvider';
+
+import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 

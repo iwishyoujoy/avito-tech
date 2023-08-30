@@ -5,6 +5,7 @@
   --dark-gray: #232428;
   --light-background-gray: #3a3f44;
   --basic-blue: #4799EB;
+  --dark-blue: #3f88d1;
   --footer: #1c1e22;
 
   --link-hover: #d9d9d9;
@@ -14,6 +15,9 @@
   --dropdown-darker-text: #6d757a;
 
   --main-divider: #3b3c3c;
+  --card-background: #32383e;
+
+  --main-radius: 0.3rem;
 }
 
 body {
@@ -29,15 +33,26 @@ body {
 .mainContainer{
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: auto;
 }
 
 .mainContent{
   flex: 1 1 auto; 
   background-color: var(--main-background);
-  height: 2000px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
 }
 
 .App{
-  padding: 1.5rem 15% 0 15%;
+  padding: 1.5rem 0 1.5rem 0;
+  width: 1080px;
+}
+
+.divider{
+  height: 1px;
+  background-color: var(--main-divider);
+  margin: 1.5rem 0 1.5rem 0;
 }

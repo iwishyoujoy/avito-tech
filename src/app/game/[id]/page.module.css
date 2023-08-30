@@ -1,0 +1,178 @@
+.mainContainer{
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.leftSideContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: center;
+    flex-basis: 35%;
+    row-gap: 0.7rem;
+}
+
+.rightSideContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: left;
+    flex-basis:65%;
+    row-gap: 1rem;
+
+    color: var(--basic-gray);
+}
+
+.image{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: var(--main-radius);
+}
+
+.buttonsContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
+    gap: 0.5rem
+}
+
+.plusButton{
+    height: 30px;
+    width: 30px;
+    transition: 0.3s ease;
+}
+
+.playButton{
+    width: 100%;
+    border-radius: var(--main-radius);
+    border: none;
+    height: 36px;
+    background-color: var(--basic-blue);
+    color: white;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+
+    font-weight: 700;
+    font-size: 16px;
+
+    transition: 0.3s ease;
+}
+
+.playButton:hover{
+    background-color: var(--dark-blue);
+}
+
+.platformContainer{
+    margin-top: 0.5rem;
+
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: bottom;
+    gap: 0.5rem;
+
+    color: var(--basic-gray);
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.genreTag{
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--card-background);
+    background-color: var(--basic-gray);
+    border-radius: var(--main-radius);
+    padding: 0.1rem 0.5rem 0.1rem 0.5rem;
+}
+
+.genreContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.titleContainer{
+    font-size: 35px;
+    font-weight: 700;
+}
+
+.description{
+    margin-top: 1.5rem;
+    margin-bottom: -1rem;;
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: 300;
+}
+
+.additionInformation{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0.7rem;
+}
+
+.infoHeader{
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.infoIcon{
+    height: 15px;
+    width: 15px;
+}
+
+.infoNote{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.infoContainer{
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    row-gap: 2rem;
+    column-gap: 1rem;
+}
+
+.container{
+    flex-basis: 25%;
+}
+
+.header{
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--dropdown-darker-text);
+}
+
+.point{
+
+    color: var(--basic-gray);
+}
+
+
+
+
+
+

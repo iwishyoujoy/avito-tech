@@ -2,8 +2,6 @@ import { logger } from '@/app/redux/middleware/logger';
 import { gameApi } from '@/app/redux/services/gamesApi';
 import { PayloadAction, configureStore, createSlice } from '@reduxjs/toolkit';
 
-//TODO: переписать на тайпскрипт
-
 interface FiltersState {
   platform: string;
   genre: string;

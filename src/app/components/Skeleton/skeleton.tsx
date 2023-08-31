@@ -1,4 +1,3 @@
-import { LoadingOutlined } from "@ant-design/icons";
 import styles from "./skeleton.module.css";
 import { Spin } from "antd";
 import Image from "next/image";

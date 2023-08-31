@@ -54,12 +54,6 @@
     color: var(--dropdown-darker-text);
 }
 
-/* .description{
-    font-size: 15px;
-    font-weight: 400;
-    color: var(--dropdown-darker-text);
-} */
-
 .tags{
     display: flex;
     flex-direction: row;

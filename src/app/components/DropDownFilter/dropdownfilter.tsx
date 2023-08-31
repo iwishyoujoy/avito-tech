@@ -6,11 +6,8 @@ import web from '@public/icons/web.svg';
 import pc from '@public/icons/pc.svg';
 
 import styles from "./dropdownfilter.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState, setGenre, setPlatform, setSortBy } from "@/app/redux/store";
-import { useState } from "react";
-
-// TODO: некрасиво использовала any
+import { useDispatch } from "react-redux";
+import { setGenre, setPlatform, setSortBy } from "@/app/redux/store";
 
 export interface DropdownFilterProps {
     children: React.ReactNode;

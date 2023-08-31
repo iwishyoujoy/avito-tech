@@ -1,5 +1,4 @@
 import { Divider } from 'antd';
-import { Footer } from "antd/es/layout/layout";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -7,8 +6,6 @@ import { FacebookOutlined, GithubOutlined, TwitterOutlined } from '@ant-design/i
 import footerLogo from '@public/images/logo-footer.png';
 
 import styles from './footer.module.css';
-
-//TODO: сделать адекватно чтобы при масштабировании футер оставался на месте
 
 const footerLinks = [
   {

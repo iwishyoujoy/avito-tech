@@ -1,5 +1,4 @@
 import { Button } from 'antd';
-import { Header } from "antd/es/layout/layout";
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -26,7 +25,6 @@ const useMediaQuery = (width: number) => {
     const media = window.matchMedia(`(max-width: ${width}px)`);
     media.addListener(updateTarget);
 
-    // Check on mount (callback is not called until a change occurs)
     if (media.matches) {
       setTargetReached(true);
     }
@@ -36,8 +34,6 @@ const useMediaQuery = (width: number) => {
 
   return targetReached;
 };
-
-
 
 export default function HeaderCustom() {
   const freeGames = ['MMORPG', 'Shooter', 'MOBA', 'Anime', 'Battle Royale', 'Strategy', 'Fantasy', 'Sci-Fi', 'Card Games', 'Racing', 'Fighting', 'Social', 'Sports'];

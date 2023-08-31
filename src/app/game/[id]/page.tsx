@@ -1,14 +1,16 @@
 'use client'
 
+import { useState } from 'react';
 import Image from 'next/image';
-import styles from './page.module.css';
+
+import SkeletonCustom from '@/app/components/Skeleton/skeleton';
+import SkeletonGame from '@/app/components/SkeletonGame/skeletonGame';
 import { useGetGameByIdQuery } from '@/app/redux/services/gamesApi';
 import { ExportOutlined } from '@ant-design/icons';
-import { useState } from 'react';
-import web from '@public/icons/web.svg';
 import pc from '@public/icons/pc.svg';
-import SkeletonGame from '@/app/components/SkeletonGame/skeletonGame';
-import SkeletonCustom from '@/app/components/Skeleton/skeleton';
+import web from '@public/icons/web.svg';
+
+import styles from './page.module.css';
 
 interface GameProps{
     params: {

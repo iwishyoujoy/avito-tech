@@ -1,7 +1,9 @@
-import styles from "./skeleton.module.css";
 import { Spin } from "antd";
 import Image from "next/image";
+
 import error from '@public/icons/error.svg';
+
+import styles from "./skeleton.module.css";
 
 export interface skeletonCustomProps{
     isError: boolean

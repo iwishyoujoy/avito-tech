@@ -1,4 +1,5 @@
 import { Skeleton } from 'antd';
+
 import styles from './skeletonGame.module.css';
 
 export default function SkeletonGame(){

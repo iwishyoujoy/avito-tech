@@ -1,21 +1,20 @@
 'use client'
 
 import React from 'react';
+import { FloatButton } from 'antd';
+import { useSelector } from 'react-redux';
 
 import DropdownFilter from './components/DropDownFilter/dropdownfilter';
+import GameCard from './components/GameCard/gamecard';
+import SkeletonCustom from './components/Skeleton/skeleton';
 import { useGetGamesQuery, 
   useGetGamesByPlatformQuery, 
   useGetGamesByCategoryQuery, 
   useGetGamesSortedQuery,
   useGetGamesByPlatformAndCategoryAndSortQuery } from '@/app/redux/services/gamesApi';
+import { RootState } from './redux/store';
 
 import styles from './page.module.css';
-import GameCard from './components/GameCard/gamecard';
-import SkeletonCustom from './components/Skeleton/skeleton';
-import { useSelector } from 'react-redux';
-import { RootState } from './redux/store';
-import { FloatButton } from 'antd';
-
 
 interface Game {
   id: number;

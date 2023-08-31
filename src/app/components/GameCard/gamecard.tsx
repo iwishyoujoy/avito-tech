@@ -1,12 +1,12 @@
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 import { PlusSquareFilled } from "@ant-design/icons";
-import web from '@public/icons/web.svg';
 import pc from '@public/icons/pc.svg';
+import web from '@public/icons/web.svg';
 
 import styles from './gamecard.module.css';
-import { useState } from "react";
 
 export interface GameCardProps {
     id: number;

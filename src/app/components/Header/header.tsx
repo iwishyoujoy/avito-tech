@@ -1,14 +1,14 @@
+import { useCallback, useEffect, useState } from 'react';
 import { Button } from 'antd';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import oneIcon from '@public/icons/oneincircle.png';
 import menu from '@public/icons/menu.svg';
+import oneIcon from '@public/icons/oneincircle.png';
 import image from '@public/images/freetogame-logo.png';
 import DropdownCustom from '../DropDown/dropdown';
 
 import styles from './header.module.css';
-import { useCallback, useEffect, useState } from 'react';
 
 const useMediaQuery = (width: number) => {
   const [targetReached, setTargetReached] = useState(false);

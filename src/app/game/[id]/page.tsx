@@ -3,10 +3,12 @@
 import Image from 'next/image';
 import styles from './page.module.css';
 import { useGetGameByIdQuery } from '@/app/redux/services/gamesApi';
-import { ExportOutlined, PlusSquareFilled } from '@ant-design/icons';
+import { ExportOutlined } from '@ant-design/icons';
 import { useState } from 'react';
 import web from '@public/icons/web.svg';
 import pc from '@public/icons/pc.svg';
+import SkeletonGame from '@/app/components/SkeletonGame/skeletonGame';
+import SkeletonCustom from '@/app/components/Skeleton/skeleton';
 
 interface GameProps{
     params: {
@@ -28,18 +30,16 @@ export default function Page({ params: { id } } : GameProps){
     const { data, isLoading, error } = useGetGameByIdQuery(id);
     
     if (isLoading) {
-        return (<div>hello</div>);
-        //TODO: пофиксить скелетон
+        return (<SkeletonGame />);
     }
 
     if (error || !data) {
-        return <div>Error loading games</div>;
-        // TODO: сделать заглушку для ошибки
+        return (<SkeletonCustom isError={true}/>);
     }
     
     return (
     <div className='App'>
-        <div className={styles.mainContainer}>
+        <div className={styles.mainGameContainer}>
             <div className={styles.leftSideContainer}>
                 <Image className={styles.image} src={`https://www.freetogame.com/g/${id}/thumbnail.jpg`} alt={data.title} width='500' height='500'/>
                 <div className={styles.buttonsContainer}>

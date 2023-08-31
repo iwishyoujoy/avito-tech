@@ -1,4 +1,4 @@
-.mainContainer{
+.mainGameContainer{
     margin-top: 0.5rem;
     display: flex;
     flex-direction: row;
@@ -167,8 +167,24 @@
 }
 
 .point{
-
     color: var(--basic-gray);
+}
+
+@media only screen and (max-width: 1080px){
+    .mainGameContainer{
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .leftSideContainer, .rightSideContainer{
+        flex-basis: 100%;
+        width: 100%;
+    }
+
+    .image{
+        height: 300px;
+    }
 }
 
 

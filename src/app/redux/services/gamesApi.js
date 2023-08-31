@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const gameApi = createApi({
   reducerPath: 'game',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://www.freetogame.com/api' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000/api' }),
   endpoints: (builder) => ({
     getGames: builder.query({ query: () => 'games' }),
     getGameById: builder.query({ query: (id) => `game?id=${id}` }),

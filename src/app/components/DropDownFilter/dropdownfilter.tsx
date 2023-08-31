@@ -6,13 +6,17 @@ import web from '@public/icons/web.svg';
 import pc from '@public/icons/pc.svg';
 
 import styles from "./dropdownfilter.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState, setGenre, setPlatform, setSortBy } from "@/app/redux/store";
+import { useState } from "react";
 
-// TODO: мб заменить svg стрелочки вниз?
 // TODO: некрасиво использовала any
+
 export interface DropdownFilterProps {
     children: React.ReactNode;
     filterText: string; // внутренний заголовок дропдауна
-    filterList: string[]; // список фильтров, который будет передаваться через пропсы
+    filterDict:  { [key: string]: string }; // список фильтров, который будет передаваться через пропсы
+    filterType: string; // тип фильтра, который будет передаваться через пропсы
 }
 
 export interface IconSrcs {
@@ -22,8 +26,28 @@ export interface IconSrcs {
 export default function DropdownFilter({
     children,
     filterText,
-    filterList,
+    filterDict,
+    filterType,
 }: DropdownFilterProps){
+    const dispatch = useDispatch();
+    // const { platform, genre, sortBy } = useSelector((state: RootState) => state.filters);
+
+    const handleSelect = (filter: string) => {
+        switch (filterType) {
+            case 'platform':
+                dispatch(setPlatform(filterDict[filter]));
+                break;
+            case 'genre':
+                dispatch(setGenre(filterDict[filter]));
+                break;
+            case 'sortBy':
+                dispatch(setSortBy(filterDict[filter]));
+                break;
+            default:
+                break;
+        }
+    };
+
     const srcForIcons: IconSrcs = {
         'Windows (PC)': pc, 
         'Browser (Web)': web,
@@ -39,9 +63,11 @@ export default function DropdownFilter({
             <Menu.Item>
                 <div className={styles.filterText}>{filterText}</div>
             </Menu.Item>
-            {filterList.map((filter, index) => (
+            {Object.keys(filterDict).map((filter, index) => (
                 <Menu.Item key={index + 1}>
-                    <div className={styles.filterItem}>
+                    <div 
+                        className={styles.filterItem}
+                        onClick={() => handleSelect(filter)}>
                         {srcForIcons[filter] ? <Image src={srcForIcons[filter]} alt={filter} className={styles.icon}/> : null}
                         {filter}
                     </div>

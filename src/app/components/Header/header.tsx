@@ -6,7 +6,7 @@ import Link from 'next/link';
 import menu from '@public/icons/menu.svg';
 import oneIcon from '@public/icons/oneincircle.png';
 import image from '@public/images/freetogame-logo.png';
-import DropdownCustom from '../DropDown/dropdown';
+import DropdownCustom from '@/app/components/DropDown/dropdown';
 
 import styles from './header.module.css';
 

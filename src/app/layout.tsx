@@ -30,7 +30,7 @@ export default function RootLayout({
           <Layout className='mainContainer'>
             <HeaderCustom/>
             <Layout className='mainContent'>
-              <Content>{children}</Content>
+              <Content className="flex-grow">{children}</Content>
             </Layout>
             <FooterCustom />
           </Layout>

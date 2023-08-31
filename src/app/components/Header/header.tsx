@@ -4,12 +4,41 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import oneIcon from '@public/icons/oneincircle.png';
+import menu from '@public/icons/menu.svg';
 import image from '@public/images/freetogame-logo.png';
 import DropdownCustom from '../DropDown/dropdown';
 
 import styles from './header.module.css';
+import { useCallback, useEffect, useState } from 'react';
 
-// TODO: инвертировать цвет кнопки при наведении, сделать хеддер стики
+const useMediaQuery = (width: number) => {
+  const [targetReached, setTargetReached] = useState(false);
+
+  const updateTarget = useCallback((e: any) => {
+    if (e.matches) {
+      setTargetReached(true);
+    } else {
+      setTargetReached(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    const media = window.matchMedia(`(max-width: ${width}px)`);
+    media.addListener(updateTarget);
+
+    // Check on mount (callback is not called until a change occurs)
+    if (media.matches) {
+      setTargetReached(true);
+    }
+
+    return () => media.removeListener(updateTarget);
+  }, []);
+
+  return targetReached;
+};
+
+
+
 export default function HeaderCustom() {
   const freeGames = ['MMORPG', 'Shooter', 'MOBA', 'Anime', 'Battle Royale', 'Strategy', 'Fantasy', 'Sci-Fi', 'Card Games', 'Racing', 'Fighting', 'Social', 'Sports'];
   const freeGamesLastItem = 'Free-To-Play Games';
@@ -17,42 +46,51 @@ export default function HeaderCustom() {
   const browserGames = ['Browser MMORPG', 'Browser Shooter', 'Browser Anime', 'Browser Strategy', 'Browser Fantasy', 'Browser Sci-Fi', 'Browser Racing', 'Browser Social', 'Browser Sports']
   const browserGamesLastItem = 'Browser Games';
 
-  const headerStyle: React.CSSProperties = {
-      zIndex: '999',
-      textAlign: 'left',
-      display: 'flex', 
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: '0',
-      height: 'auto',
-      backgroundColor: '#272b30',
-      boxShadow: '0px 1px 5px #1c1e22',
-    };
+  const isBreakpoint = useMediaQuery(768);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const logoDesktop = () => {
+    return (
+      <Link href="/" className={styles.logo}>
+        <Image src={image} alt="Free-to-play Games logo"/>
+    </Link>);
+  }
+  
+  const logoMobile = () => {
+    return (
+      <div className={styles.mobileContainer}>
+        <Link href="/" className={styles.logo}>
+          <Image src={image} alt="Free-to-play Games logo"/>
+        </Link>
+        <Image onClick={() => setIsOpen(!isOpen)} src={menu} alt="Menu button"/>
+      </div>
+      );
+  }
     
   return (
-      <Header style={headerStyle}>
+      <div className={styles.mainContainer}>
         <div className={styles.headerContainer}>
           <div className={styles.leftSideHeader}>
-            <Link href="/" className={styles.logo}>
-              <Image src={image} alt="Free-to-play Games logo"/>
-            </Link>
-            <DropdownCustom gameList={freeGames} lastItem={freeGamesLastItem}>Free Games</DropdownCustom>
-            <DropdownCustom gameList={browserGames} lastItem={browserGamesLastItem}>Browser Games</DropdownCustom>
-            <Link href="/giveaways" className={styles.link}>
-              <div className={styles.linkText}>Special Offers</div>
-              <Image className={styles.icon} src={oneIcon} alt="Number one"/>
-            </Link>
-            <Link href="/top" className={styles.link}>Top 2023</Link>
+            {isBreakpoint ? logoMobile() : logoDesktop()}
+            <div className={'menu ' + (isOpen ? 'show' : '')}>
+              <DropdownCustom gameList={freeGames} lastItem={freeGamesLastItem}>Free Games</DropdownCustom>
+              <DropdownCustom gameList={browserGames} lastItem={browserGamesLastItem}>Browser Games</DropdownCustom>
+              <Link href="/" className={styles.link}>
+                <div className={styles.linkText}>Special Offers</div>
+                <Image className={styles.icon} src={oneIcon} alt="Number one"/>
+              </Link>
+              <Link href="/" className={styles.link}>Top 2023</Link>
+            </div>
           </div>
-          <div className={styles.rightSideHeader}>
+          <div className={'rightSideHeader ' + (isOpen ? ' show' : '')}>
             <Button 
-              href='/register'
+              href='/'
               className={styles.joinButton} 
               size='large'
               ghost={true}
             >Join Free</Button>
           </div>
         </div>
-      </Header>
+      </div>
   )
 }

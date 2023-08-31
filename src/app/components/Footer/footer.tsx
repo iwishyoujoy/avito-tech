@@ -35,17 +35,6 @@ const footerLinks = [
 ];
 
 export default function FooterCustom() {
-    const footerStyle: React.CSSProperties = {
-        textAlign: 'left',
-        display: 'flex', 
-        alignItems: 'top',
-        justifyContent: 'space-between',
-        padding: '2rem 15% 2rem 15%',
-        height: 'auto',
-        backgroundColor: '#1c1e22',
-        color: 'white',
-    };
-
     const dividerStyle: React.CSSProperties = {
         backgroundColor: '#232428', 
     }
@@ -55,13 +44,13 @@ export default function FooterCustom() {
     }
 
     return (
-        <Footer style={footerStyle} className={styles.mainContainer}>
+        <div className={styles.mainContainer}>
             <div className={styles.footerContainer}>
                 <div className={styles.footerRow}>
                     {footerLinks.map((column, columnIndex) => (
                         <div className={styles.footerColumn} key={columnIndex}>
                             {column.links.map((link, linkIndex) => (
-                                <Link href={link.href} key={linkIndex} className={styles.link}>
+                                <Link href="/" key={linkIndex} className={styles.link}>
                                     {link.label}
                                 </Link>
                             ))}
@@ -85,6 +74,6 @@ export default function FooterCustom() {
                     </div>
                 </div>
             </div>
-        </Footer>
+        </div>
     )
 }

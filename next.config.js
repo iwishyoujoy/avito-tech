@@ -1,7 +1,8 @@
 module.exports = {
-    images: {
-      domains: ['www.freetogame.com'],
-      loader: 'default',
-    },
+  output: 'export',
+  images: {
+    domains: ['www.freetogame.com'],
+    loader: 'default',
+  },
   };
   

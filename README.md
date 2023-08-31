@@ -31,9 +31,8 @@
 Таким образом, при запуске проекта командой `npm run dev` на 3001 порту открывается приложение, а на 3000 порту открывается прокси, все пишется в консоль. 
 
 ### Что-то пошло не так?
-- удостоверьтесь, что в файле `src/app/redux/services/gamesApi.js` написана такая строчка: `  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000/api' })
-`
-- удостоверьтесь, что в файле `next.config.js` нет строки `  output: 'export'`
+- удостоверьтесь, что в файле `src/app/redux/services/gamesApi.js` написана такая строчка: `baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000/api' })`
+- удостоверьтесь, что в файле `next.config.js` нет строки `output: 'export'`
 - проверьте, не заняты ли используемые порты
 - проверьте консоль! 
 

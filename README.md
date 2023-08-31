@@ -1,34 +1,58 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Free-to-play Games Website
+Сайт, повторяющий интерфейс [сайта с бесплатными играми](www.freetogame.com), с использованием  Free-To-Play Games API. 
 
-## Getting Started
+[TOC]
 
-First, run the development server:
+## Что реализовано?
+- Главная страница игр с фильтрацией по платформе, жанру и с сортировкой по 4-м разным категориям.
+- Отдельная страница для каждой игры с постером, названием, кратким описанием, дополнительной информацией о дате выхода, создателе и т.д. 
+- Кнопка возврата на самый верх страницы, кастомные дропдауны и скелетоны-загрузчики.
+- Мобильная версия сайта со скрывающимся меню в хедере.
+- При переходах по ссылкам сраница не перезагружается (для удоства ссылки, ведущие на нереализованные страницы, ведут на главную)
+- Сохраняется значения выбранных фильтров (sessionScoped)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+## Использованные технологии
+- TypeScript, JavaScript
+- React + Next.js
+- Ant Design (UI Framework)
+- Redux, React Hooks (кастомые - для получения информации с сервера), Reducers (для отслеживания состояния фильтров)
+- proxy server
+
+## Скриншоты интерфейса (десктоп)
+
+![Главная страница](/free-to-play-games/public/screenshots/mainpage.png)
+
+![Реализация фильтров](/free-to-play-games/public/screenshots/filters.png)
+
+![Страница игры](/free-to-play-games/public/screenshots/singlegame.png)
+
+## Скриншоты интерфейса (мобильный)
+
+Главная страница      | Главная страница с открытым меню
+:-------------------------:|:-------------------------:
+![](/free-to-play-games/public/screenshots/mainpageMobile.png)  |  ![](/free-to-play-games/public/screenshots/mainpagemenuMobile.png) | 
+
+Страница игры     | Главная страница с применеными фильтрами
+:-------------------------:|:-------------------------:
+![](/free-to-play-games/public/screenshots/singlegameMobile.png)  | ![](/free-to-play-games/public/screenshots/filtersMobile.png) 
+
+## Как запустить? 
+
+Так как существует CORS policy, которую достаточно сложно обойти, я создала прокси-сервер (`server.js`) на Node.js с использованием Express, который подменяет URL адрес, когда мы обращаемся к ресурсу. То есть создается видимость, что берем всю информацию с localhost. 
+
+Как использовать этот прокси сервер: в package.json удобнее всего будет прописать команду для запуска и сервера и приложения next:
+
+```json
+"scripts": {
+    "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\"",
+    "dev:client": "next dev -p 3001", 
+    "dev:server": "node server.js",
 ```
+Таким образом, при запуске проекта командой `npm run dev` на 3001 порту открывается приложение, а на 3000 порту открывается прокси, все пишется в консоль. 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Что-то пошло не так?
+- удостоверьтесь, что в файле `src/app/redux/services/gamesApi.js` написана такая строчка: `  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000/api' })
+`
+- удостоверьтесь, что в файле `next.config.js` нет строки `  output: 'export'`
+- проверьте, не заняты ли используемые порты
+- проверьте консоль! 

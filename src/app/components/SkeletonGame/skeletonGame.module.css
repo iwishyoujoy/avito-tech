@@ -1,0 +1,56 @@
+.mainContainer{
+    height: 70vh;
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.leftSideContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: center;
+    flex-basis: 35%;
+    row-gap: 0.7rem;
+}
+
+.rightSideContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: left;
+    flex-basis:65%;
+    row-gap: 1rem;
+}
+
+.buttonsContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
+    gap: 0.5rem
+}
+
+@media only screen and (max-width: 768px){
+    .mainContainer{
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        height: 80vh;
+    }
+
+    .leftSideContainer{
+        flex-basis: 100%;
+        width: 100%;
+    }
+
+    .rightSideContainer{
+        flex-basis: 100%;
+        width: 100%;
+    }
+
+}

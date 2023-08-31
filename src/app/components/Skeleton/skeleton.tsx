@@ -1,20 +1,22 @@
+import { LoadingOutlined } from "@ant-design/icons";
 import styles from "./skeleton.module.css";
+import { Spin } from "antd";
+import Image from "next/image";
+import error from '@public/icons/error.svg';
 
-export default function SkeletonCustom(){
+export interface skeletonCustomProps{
+    isError: boolean
+}
+
+export default function SkeletonCustom({isError} : skeletonCustomProps){
     return (
-        <div className={styles.cardContainer}>
-                <div className={styles.cardImage}>
-                </div>
-                <div className={styles.mainInfoContainer}>
-                    <div className={styles.titleContainer}>
-                    </div>
-                    <div className={styles.descriptionContainer}>
-                    </div>
-                    <div className={styles.tags}>
-                        <div className={styles.tagsRightSide}>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div className={styles.skeletonContainer}>
+            {isError ?
+            <div className={styles.skeletonError}>
+                <Image src={error} alt="Error" style={{height: '30px', width: '30px'}}/>
+                Oops! Seems like something gone wrong. Try to reload the page!
+            </div> 
+            : <Spin size="large"/>}
+        </div>
     )
 }

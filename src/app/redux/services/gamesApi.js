@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const gameApi = createApi({
   reducerPath: 'game',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://free-to-play-games-database.p.rapidapi.com/api' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://free-to-play-games-database.p.rapidapi.com/api/' }),
   endpoints: (builder) => ({
     getGames: builder.query({ query: () => 'games' }),
     getGameById: builder.query({ query: (id) => `game?id=${id}` }),
